@@ -1,0 +1,68 @@
+// lib/api.ts
+const API_URL = "https://thekidling.com/graphql";
+
+interface FetchAPIOptions {
+  variables?: Record<string, any>;
+}
+
+// Generic fetch function
+async function fetchAPI(query: string, { variables } = {} as FetchAPIOptions) {
+  const res = await fetch(API_URL, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ query, variables }),
+  });
+
+  const json = await res.json();
+
+  if (json.errors) {
+    console.error("GraphQL errors:", json.errors);
+    throw new Error("Failed to fetch API");
+  }
+
+  return json.data;
+}
+
+// Fetch all posts for homepage/blog
+export async function getAllPostsForHome() {
+  const data = await fetchAPI(`
+    query AllPosts {
+      posts(first: 20, where: { orderby: { field: DATE, order: DESC } }) {
+        edges {
+          node {
+            title
+            excerpt
+            slug
+            date
+          }
+        }
+      }
+    }
+  `);
+
+  // Flatten edges into array of nodes
+  const posts = data?.posts?.edges?.map((edge: any) => edge.node) || [];
+  return posts;
+}
+
+// Fetch single post by slug
+export async function getPostBySlug(slug: string) {
+  console.log("Fetching post for slug:", slug);
+
+  const data = await fetchAPI(
+    `
+    query PostBySlug($id: ID!, $idType: PostIdType!) {
+      post(id: $id, idType: $idType) {
+        title
+        slug
+        content
+        date
+      }
+    }
+  `,
+    { variables: { id: slug, idType: "SLUG" } }
+  );
+
+  console.log("GraphQL result:", data?.post);
+  return data?.post || null;
+}
