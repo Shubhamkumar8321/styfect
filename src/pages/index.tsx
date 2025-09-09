@@ -4,7 +4,7 @@ import CurtainCategory from "@/components/category";
 import AboutSection from "@/components/about";
 import FAQSection from "@/components/faq";
 import BlogList from "@/components/blog";
-import dynamic from "next/dynamic"; // 👈 for client-only import
+//import dynamic from "next/dynamic"; // 👈 for client-only import
 import ProductCard from "@/components/curtaincard";
 import { getProducts } from "@/lib/woocommerce";
 import { getAllPostsForHome } from "@/lib/wordpress";
