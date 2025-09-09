@@ -1,5 +1,5 @@
 import Link from "next/link";
-
+import Image from "next/image";
 interface BlogPost {
   id: number;
   slug: string;
@@ -26,7 +26,7 @@ export default function BlogList({ posts }: { posts: BlogPost[] }) {
               {/* Featured Image */}
               {post.featured_image && (
                 <div className="relative w-full h-52 overflow-hidden">
-                  <img
+                  <Image
                     src={post.featured_image}
                     alt={post.title.rendered}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"

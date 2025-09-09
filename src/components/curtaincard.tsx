@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-// import Image from "next/image";
+import Image from "next/image";
 
 interface Product {
   id: number;
@@ -15,7 +15,7 @@ const ProductCard: React.FC<{ product: Product }> = ({ product }) => {
       <Link href={`/products/${product.id}`}>
         {/* Product Image */}
         <div className="relative w-full h-64 overflow-hidden">
-          <img
+          <Image
             src={product.images?.[0]?.src || "/placeholder.jpg"}
             alt={product.name}
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
@@ -94,7 +94,7 @@ export default ProductCard;
 //                 }}
 //               >
 //                 {index === 4 && (
-//                   <img
+//                   <Image
 //                     src={product.images?.[0]?.src || "/placeholder.jpg"}
 //                     alt={product.name}
 //                     className="w-10 h-10 object-cover rounded-full"
@@ -170,7 +170,7 @@ export default ProductCard;
 //         <div className="info-section relative flex justify-between items-center h-3/4 px-4 py-2 z-10 text-white">
 //           {/* Left: Image + Name */}
 //           <div className="left-side flex flex-col justify-around h-full">
-//             <img
+//             <Image
 //               src={product.images?.[0]?.src || "/placeholder.jpg"}
 //               alt={product.name}
 //               className="w-24 h-24 object-cover rounded-xl shadow-md"
@@ -306,7 +306,7 @@ export default ProductCard;
 //           ref={imageRef}
 //           className="relative w-full h-64 overflow-hidden rounded-t-3xl"
 //         >
-//           <img
+//           <Image
 //             src={product.images?.[0]?.src || "/placeholder.jpg"}
 //             alt={product.name}
 //             className="w-full h-full object-cover"

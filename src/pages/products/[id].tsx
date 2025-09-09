@@ -2,7 +2,7 @@ import { useState } from "react";
 import { GetServerSideProps } from "next";
 import { getProductById, getProducts } from "@/lib/woocommerce";
 import Link from "next/link";
-
+import Image from "next/image";
 export default function ProductDetail({
   product,
   relatedProducts,
@@ -73,7 +73,7 @@ export default function ProductDetail({
                 Your browser does not support video playback.
               </video>
             ) : (
-              <img
+              <Image
                 src={images[Number(selectedImage)]?.src || "/placeholder.png"}
                 alt={product.name}
                 className="w-full h-[450px] object-cover rounded-xl"
@@ -83,10 +83,10 @@ export default function ProductDetail({
 
           {/* Thumbnails */}
           <div className="flex gap-3 mt-4 overflow-x-auto pb-2 relative">
-            {images.slice(0, 5).map((img: any, idx: number) => (
-              <img
+            {images.slice(0, 5).map((Image: any, idx: number) => (
+              <Image
                 key={idx}
-                src={img.src}
+                src={Image.src}
                 alt={`thumb-${idx}`}
                 className={`w-20 h-20 object-cover rounded-lg border border-gray-300 cursor-pointer transition ${
                   selectedImage === idx
@@ -104,7 +104,7 @@ export default function ProductDetail({
               }`}
               onClick={() => setSelectedImage("video")}
             >
-              <img
+              <Image
                 src="/video-thumbnail.jpg"
                 alt="video"
                 className="w-full h-full object-cover"
@@ -399,7 +399,7 @@ export default function ProductDetail({
             {relatedProducts.slice(0, 4).map((p) => (
               <Link key={p.id} href={`/products/${p.id || p.id}`}>
                 <div className="border border-gray-200 rounded-lg shadow hover:shadow-lg transition p-3 bg-white cursor-pointer">
-                  <img
+                  <Image
                     src={p.images?.[0]?.src || "/placeholder.png"}
                     alt={p.name}
                     className="w-full h-40 object-cover rounded-md mb-3"

@@ -1,6 +1,7 @@
 // pages/blogs/[id].tsx
 import { GetServerSideProps } from "next";
 import { getPostById } from "@/lib/wordpress";
+import Image from "next/image";
 
 export default function BlogDetail({ post }: { post: any }) {
   if (!post) {
@@ -20,7 +21,7 @@ export default function BlogDetail({ post }: { post: any }) {
         {/* Featured Image */}
         {image && (
           <div className="w-full overflow-hidden rounded-2xl shadow-lg">
-            <img
+            <Image
               src={image}
               alt={post.title.rendered}
               className="w-full h-[400px] object-cover transition-transform duration-500 hover:scale-105"
