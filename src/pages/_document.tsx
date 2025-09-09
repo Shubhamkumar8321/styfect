@@ -5,13 +5,16 @@ export default function Document() {
   return (
     <Html lang="en-US">
       <Head>
+        <meta charSet="UTF-8" />
         <link rel="icon" href="/favicon.ico" />
-        <title>Styfect - Elegant Curtains for Every Home</title>
+        {/* You can include global fonts, styles, or meta tags here */}
       </Head>
-      <body>
+      <body className="bg-white text-gray-900">
         <Main />
         <NextScript />
       </body>
     </Html>
   );
 }
+
+

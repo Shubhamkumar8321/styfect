@@ -61,7 +61,7 @@ export default function ProductDetail({
       <div className="grid md:grid-cols-2 gap-10 relative">
         {/* LEFT SIDE - FIXED IMAGE + VIDEO GALLERY */}
         <div className="md:sticky md:top-24 self-start">
-          <div className="bg-white rounded-2xl p-4 border border-gray-300">
+          <div className="bg-white rounded-2xl p-4">
             <div className="absolute inset-0 bg-gradient-to-br from-pink-300 via-blue-200 to-white opacity-25 blur-3xl"></div>
             {/* Main Display */}
             {selectedImage === "video" ? (
@@ -342,7 +342,7 @@ export default function ProductDetail({
           </Accordion>
 
           {/* Warranty */}
-          <Accordion title="🛡️ Warranty Options">
+          {/* <Accordion title="🛡️ Warranty Options">
             <div className="space-y-3 mt-3">
               {[
                 {
@@ -370,31 +370,29 @@ export default function ProductDetail({
                 </label>
               ))}
             </div>
-          </Accordion>
+          </Accordion> */}
         </div>
       </div>
 
       {/* Product Info Below */}
       <div className="mt-12 space-y-4">
-        <Accordion title="ℹ️ Product Information">
+        <Accordion title=" Product Information">
           <div
             dangerouslySetInnerHTML={{
               __html: product.short_description || product.description,
             }}
           />
         </Accordion>
-        <Accordion title="⚙️ Specifications">
+        <Accordion title="Specifications">
           <p>Dimensions, materials, and technical details go here.</p>
         </Accordion>
-        <Accordion title="🛠️ Measure and Install">
+        <Accordion title=" Measure and Install">
           <p>Step-by-step installation guide here.</p>
         </Accordion>
-        <Accordion title="🚚 Shipping & Production">
+        <Accordion title="Shipping & Production">
           <p>Ships in 2-3 business days. Free shipping available.</p>
         </Accordion>
-        <Accordion title="⭐ Reviews">
-          <p>Customer reviews section goes here.</p>
-        </Accordion>
+  
       </div>
 
       {/* Related Products */}
@@ -434,7 +432,7 @@ function Accordion({ title, children }: { title: string; children: any }) {
         onClick={() => setOpen(!open)}
       >
         {title}
-        <span>{open ? "▲" : "▼"}</span>
+        <span>{open ? "^" : ">"}</span>
       </button>
       {open && <div className="px-4 pb-4 text-gray-700">{children}</div>}
     </div>

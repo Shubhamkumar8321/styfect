@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@next/font": "^14.2.15",
     "@radix-ui/react-slot": "^1.2.3",
     "@types/gsap": "^1.20.2",
     "@woocommerce/woocommerce-rest-api": "^1.0.2",

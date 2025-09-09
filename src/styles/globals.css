@@ -13,7 +13,7 @@
 /* ✅ Correct font-face */
 @font-face {
   font-family: "webspecia";
-  src: url("/font/Webspecia-Regular.woff2") format("woff2");
+  src: url("/fonts/Webspecia-Regular.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -21,7 +21,7 @@
 
 @font-face {
   font-family: "webspecia";
-  src: url("/font/Webspecia-Bold.woff2") format("woff2");
+  src: url("/fonts/Webspecia-Bold.woff") format("woff");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
