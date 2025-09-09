@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+
 interface BlogPost {
   id: number;
   slug: string;
@@ -11,19 +12,21 @@ interface BlogPost {
 export default function BlogList({ posts }: { posts: BlogPost[] }) {
   if (!Array.isArray(posts) || posts.length === 0) {
     return (
-      <p className="text-center text-gray-500 text-lg">⚠️ No blogs available</p>
+      <p className="text-center text-gray-500 text-base sm:text-lg mt-6">
+        ⚠️ No blogs available
+      </p>
     );
   }
 
   return (
-    <div className="max-w-full mx-auto px-4 py-6">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+    <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-12 py-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
         {posts.map((post) => (
           <Link key={post.id} href={`/blogs/${post.id}`}>
-            <div className="bg-white rounded-2xl shadow-md hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 flex flex-col h-full overflow-hidden group cursor-pointer border border-gray-100">
+            <div className="bg-white rounded-2xl shadow-md hover:shadow-2xl transform hover:-translate-y-1 sm:hover:-translate-y-2 transition-all duration-300 flex flex-col h-full overflow-hidden group cursor-pointer border border-gray-100">
               {/* Featured Image */}
               {post.featured_image && (
-                <div className="relative w-full h-52 overflow-hidden">
+                <div className="relative w-full h-52 sm:h-60 md:h-64 overflow-hidden">
                   <Image
                     src={post.featured_image}
                     alt={post.title.rendered}
@@ -36,22 +39,22 @@ export default function BlogList({ posts }: { posts: BlogPost[] }) {
               )}
 
               {/* Content */}
-              <div className="p-6 flex flex-col flex-1">
+              <div className="p-4 sm:p-6 flex flex-col flex-1">
                 <h3
-                  className="text-xl font-bold mb-3 text-gray-900 group-hover:text-[#0c655c] transition-colors duration-300 leading-snug"
+                  className="text-lg sm:text-xl font-bold mb-2 sm:mb-3 text-gray-900 group-hover:text-[#0c655c] transition-colors duration-300 leading-snug"
                   dangerouslySetInnerHTML={{
                     __html: post?.title?.rendered || "",
                   }}
                 />
 
                 <div
-                  className="text-gray-600 mb-6 line-clamp-3 text-sm flex-1"
+                  className="text-gray-600 mb-4 sm:mb-6 line-clamp-3 text-sm sm:text-base flex-1"
                   dangerouslySetInnerHTML={{
                     __html: post?.excerpt?.rendered || "",
                   }}
                 />
 
-                <span className="mt-auto inline-block text-white bg-gradient-to-r from-[#0c655c] to-[#0c655c] hover:from-[#0c655c]/90 hover:to-[#0c655c] px-5 py-2 rounded-full font-medium transition-all duration-300 shadow-md hover:shadow-xl text-center">
+                <span className="mt-auto inline-block text-white bg-gradient-to-r from-[#0c655c] to-[#0c655c] hover:from-[#0c655c]/90 hover:to-[#0c655c] px-4 sm:px-5 py-2 rounded-full font-medium transition-all duration-300 shadow-md hover:shadow-xl text-center text-sm sm:text-base">
                   Read More →
                 </span>
               </div>

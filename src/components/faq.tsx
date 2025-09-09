@@ -51,40 +51,44 @@ export default function FAQSection() {
   };
 
   return (
-    <section className="bg-gray-50 py-20 px-6 md:px-12 lg:px-20">
-      <div className="max-w-5xl mx-auto text-center mb-16">
-        <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
+    <section className="bg-gray-50 py-12 sm:py-16 md:py-20 px-4 sm:px-6 md:px-12 lg:px-20">
+      {/* Heading */}
+      <div className="max-w-4xl sm:max-w-5xl mx-auto text-center mb-12 sm:mb-16">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900">
           Frequently Asked <span className="text-[#0c655c]">Questions</span>
         </h2>
-        <p className="text-gray-600 mt-4 text-lg md:text-xl">
+        <p className="text-gray-600 mt-3 sm:mt-4 text-base sm:text-lg md:text-xl">
           Got questions about our curtains? We’ve got the answers for you!
         </p>
       </div>
 
-      <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
+      {/* FAQ Grid */}
+      <div className="max-w-4xl sm:max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
         {faqs.map((faq, index) => (
           <div
             key={index}
-            className="border border-gray-200 rounded-xl shadow-lg bg-white transition-transform transform hover:-translate-y-1 hover:shadow-2xl"
+            className="border border-gray-200 rounded-xl shadow-md bg-white transition-transform transform hover:-translate-y-1 hover:shadow-lg"
           >
             <button
               onClick={() => toggleFAQ(index)}
-              className="w-full flex justify-between items-center p-5 text-left focus:outline-none"
+              className="w-full flex justify-between items-center p-4 sm:p-5 text-left focus:outline-none"
             >
-              <span className="font-medium text-gray-800 text-lg md:text-xl">
+              <span className="font-medium text-gray-800 text-base sm:text-lg md:text-xl">
                 {faq.question}
               </span>
-              <span className="text-[#0c655c] text-2xl md:text-3xl transition-transform duration-300">
+              <span className="text-[#0c655c] text-xl sm:text-2xl md:text-3xl transition-transform duration-300">
                 {openIndex === index ? "−" : "+"}
               </span>
             </button>
 
             <div
-              className={`overflow-hidden transition-all duration-300 px-5 ${
-                openIndex === index ? "max-h-96 py-4" : "max-h-0 py-0"
+              className={`overflow-hidden transition-all duration-300 px-4 sm:px-5 ${
+                openIndex === index ? "max-h-96 py-3 sm:py-4" : "max-h-0 py-0"
               }`}
             >
-              <p className="text-gray-600 text-base md:text-lg">{faq.answer}</p>
+              <p className="text-gray-600 text-sm sm:text-base md:text-lg">
+                {faq.answer}
+              </p>
             </div>
           </div>
         ))}

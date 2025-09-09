@@ -22,19 +22,20 @@ const CurtainCategory: React.FC = () => {
   };
 
   return (
-    <div className="p-6 bg-gray-100">
-      <h2 className="text-5xl font-bold mb-8 text-center">
+    <div className="p-6 sm:p-8 md:p-12 bg-gray-100">
+      <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-8 text-center">
         Choose Your Curtain Type
       </h2>
 
-      {/* Responsive Grid - Always Centered */}
+      {/* Responsive Grid */}
       <div className="flex justify-center">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-items-center max-w-full mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8 justify-items-center max-w-full mx-auto">
           {curtains.map((curtain) => (
             <div
               key={curtain.name}
-              className={`relative cursor-pointer h-72 w-72 rounded-xl overflow-hidden shadow-lg transform transition-transform hover:scale-105
-                ${selected === curtain.name ? "ring-4 ring-[#0c655c]" : ""}`}
+              className={`relative cursor-pointer rounded-xl overflow-hidden shadow-lg transform transition-transform duration-300 hover:scale-105
+                ${selected === curtain.name ? "ring-4 ring-[#0c655c]" : ""} 
+                w-64 h-64 sm:w-64 sm:h-64 md:w-72 md:h-72`}
               onClick={() => handleSelect(curtain.name)}
             >
               {/* Background Image */}
@@ -45,7 +46,7 @@ const CurtainCategory: React.FC = () => {
 
               {/* Overlay */}
               <div className="absolute inset-0 bg-black/25 flex items-center justify-center transition-opacity duration-300 hover:bg-black/30">
-                <span className="text-white text-lg sm:text-xl font-semibold text-center px-2">
+                <span className="text-white text-lg sm:text-xl md:text-2xl font-semibold text-center px-2">
                   {curtain.name}
                 </span>
               </div>

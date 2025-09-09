@@ -15,30 +15,30 @@ export default function BlogDetail({ post }: { post: any }) {
   const image = post._embedded?.["wp:featuredmedia"]?.[0]?.source_url;
 
   return (
-    <div className="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 lg:grid-cols-3 gap-10">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-10 grid grid-cols-1 lg:grid-cols-3 gap-10">
       {/* ---------------- Left: Blog Content ---------------- */}
-      <div className="lg:col-span-2">
+      <div className="lg:col-span-2 space-y-6">
         {/* Featured Image */}
         {image && (
           <div className="w-full overflow-hidden rounded-2xl shadow-lg">
             <Image
               src={image}
               alt={post.title.rendered}
-              width={1200} // ✅ required
-              height={400} // ✅ required
-              className="w-full h-[400px] object-cover transition-transform duration-500 hover:scale-105"
+              width={1200} 
+              height={400} 
+              className="w-full h-[250px] sm:h-[300px] md:h-[400px] object-cover transition-transform duration-500 hover:scale-105 rounded-2xl"
             />
           </div>
         )}
 
         {/* Title */}
         <h1
-          className="text-4xl font-extrabold mt-8 mb-4 text-gray-900 leading-snug"
+          className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 leading-snug"
           dangerouslySetInnerHTML={{ __html: post.title.rendered }}
         />
 
         {/* Meta Info */}
-        <p className="text-sm text-gray-500 mb-6">
+        <p className="text-sm sm:text-base text-gray-500">
           Published on{" "}
           <span className="font-medium">
             {new Date(post.date).toLocaleDateString("en-US", {
@@ -51,26 +51,26 @@ export default function BlogDetail({ post }: { post: any }) {
 
         {/* Blog Content */}
         <div
-          className="prose prose-lg prose-gray max-w-none leading-relaxed"
+          className="prose prose-sm sm:prose lg:prose-lg prose-gray max-w-full leading-relaxed"
           dangerouslySetInnerHTML={{ __html: post.content.rendered }}
         />
       </div>
 
-      {/* ---------------- Right: Sidebar (Sticky) ---------------- */}
-      <aside className="space-y-6 lg:sticky lg:top-20 self-start h-fit">
+      {/* ---------------- Right: Sidebar (Mobile Responsive) ---------------- */}
+      <aside className="space-y-6 lg:sticky lg:top-20 self-start">
         {/* Newsletter Widget */}
         <div className="p-6 border rounded-2xl shadow bg-white">
           <h3 className="text-lg font-semibold mb-2">📩 Stay up to date</h3>
           <p className="text-sm text-gray-500 mb-4">
             Get notified when we publish something new.
           </p>
-          <div className="flex">
+          <div className="flex flex-col sm:flex-row gap-2">
             <input
               type="email"
               placeholder="Enter your email"
-              className="flex-1 px-3 py-2 border rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="flex-1 px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
-            <button className="px-4 py-2 bg-blue-600 text-white rounded-r-lg hover:bg-blue-700">
+            <button className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
               Subscribe
             </button>
           </div>
@@ -125,7 +125,7 @@ export default function BlogDetail({ post }: { post: any }) {
       </aside>
     </div>
   );
-}
+};
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const { id } = context.params as { id: string };

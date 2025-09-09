@@ -7,19 +7,19 @@ interface Product {
   id: number;
   name: string;
   price: string;
-  images: { src: string}[];
+  images: { src: string }[];
 }
 
 export default function Products({ products }: { products: Product[] }) {
   return (
-    <div>
-      <div className="max-w-7xl mx-auto px-6 py-12">
-        <h1 className="text-4xl font-extrabold text-gray-900 mb-10 text-center">
+    <div className="bg-gray-50 min-h-screen">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-12">
+        <h1 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-8 sm:mb-10 text-center">
           Our Products
         </h1>
 
         {products.length > 0 ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-8">
             {products.map((product) => (
               <div
                 key={product.id}
@@ -30,12 +30,16 @@ export default function Products({ products }: { products: Product[] }) {
             ))}
           </div>
         ) : (
-          <p className="text-center text-gray-500 text-lg">
+          <p className="text-center text-gray-500 text-lg mt-12">
             ⚠️ No products available
           </p>
         )}
       </div>
-      <Faq />
+
+      {/* FAQ Section */}
+      <div className="px-4 sm:px-6 md:px-8">
+        <Faq />
+      </div>
     </div>
   );
 }

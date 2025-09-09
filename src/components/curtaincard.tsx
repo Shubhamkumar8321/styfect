@@ -11,10 +11,10 @@ interface Product {
 
 const ProductCard: React.FC<{ product: Product }> = ({ product }) => {
   return (
-    <div className="group relative bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100">
+    <div className="group relative bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 w-full sm:w-64 md:w-72">
       <Link href={`/products/${product.id}`}>
         {/* Product Image */}
-        <div className="relative w-full h-64 overflow-hidden">
+        <div className="relative w-full h-48 sm:h-56 md:h-64 overflow-hidden rounded-t-2xl">
           <Image
             src={product.images?.[0]?.src || "/placeholder.jpg"}
             alt={product.name}
@@ -25,11 +25,11 @@ const ProductCard: React.FC<{ product: Product }> = ({ product }) => {
           {/* Overlay hover effect */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-black/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
-          {/* Wishlist */}
-          <button className="absolute top-3 right-3 p-2 bg-white rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-red-50">
+          {/* Wishlist Button */}
+          <button className="absolute top-2 sm:top-3 right-2 sm:right-3 p-2 bg-white rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-red-50">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5 text-gray-600"
+              className="h-4 sm:h-5 w-4 sm:w-5 text-gray-600"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -45,13 +45,21 @@ const ProductCard: React.FC<{ product: Product }> = ({ product }) => {
         </div>
 
         {/* Product Info */}
-        <div className="p-5 space-y-2">
+        <div className="p-4 sm:p-5 flex flex-col flex-1">
           {/* Product Name */}
-          <h2 className="text-base font-semibold text-gray-800 group-hover:text-[#0c655c] transition-colors duration-300 line-clamp-2">
+          <h2 className="text-sm sm:text-base md:text-lg font-semibold text-gray-800 group-hover:text-[#0c655c] transition-colors duration-300 line-clamp-2">
             {product.name}
           </h2>
+
           {/* Price */}
-          <p className="text-lg font-bold text-[#0c655c]">₹{product.price}</p>
+          <p className="text-base sm:text-lg md:text-xl font-bold text-[#0c655c] mt-1">
+            ₹{product.price}
+          </p>
+
+          {/* Buy Button */}
+          <button className="mt-3 px-4 sm:px-5 py-2 bg-[#0c655c] text-white font-semibold rounded-lg shadow-md hover:bg-[#0c655c]/90 transition-all duration-300 text-sm sm:text-base">
+            Buy Now
+          </button>
         </div>
       </Link>
     </div>
@@ -59,7 +67,6 @@ const ProductCard: React.FC<{ product: Product }> = ({ product }) => {
 };
 
 export default ProductCard;
-
 
 // import React from "react";
 // import Link from "next/link";
