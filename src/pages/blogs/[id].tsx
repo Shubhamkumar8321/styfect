@@ -24,6 +24,8 @@ export default function BlogDetail({ post }: { post: any }) {
             <Image
               src={image}
               alt={post.title.rendered}
+              width={1200} // ✅ required
+              height={400} // ✅ required
               className="w-full h-[400px] object-cover transition-transform duration-500 hover:scale-105"
             />
           </div>

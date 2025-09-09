@@ -11,9 +11,7 @@ interface BlogPost {
 export default function BlogList({ posts }: { posts: BlogPost[] }) {
   if (!Array.isArray(posts) || posts.length === 0) {
     return (
-      <p className="text-center text-gray-500 text-lg">
-        ⚠️ No blogs available
-      </p>
+      <p className="text-center text-gray-500 text-lg">⚠️ No blogs available</p>
     );
   }
 
@@ -29,6 +27,7 @@ export default function BlogList({ posts }: { posts: BlogPost[] }) {
                   <Image
                     src={post.featured_image}
                     alt={post.title.rendered}
+                    fill
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                   {/* Overlay */}

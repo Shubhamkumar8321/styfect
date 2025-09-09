@@ -7,7 +7,7 @@ interface Product {
   id: number;
   name: string;
   price: string;
-  images: { src: string }[];
+  images: { src: string}[];
 }
 
 export default function Products({ products }: { products: Product[] }) {

@@ -76,6 +76,8 @@ export default function ProductDetail({
               <Image
                 src={images[Number(selectedImage)]?.src || "/placeholder.png"}
                 alt={product.name}
+                width={600} // ✅ required
+                height={450} // ✅ required
                 className="w-full h-[450px] object-cover rounded-xl"
               />
             )}
@@ -83,11 +85,13 @@ export default function ProductDetail({
 
           {/* Thumbnails */}
           <div className="flex gap-3 mt-4 overflow-x-auto pb-2 relative">
-            {images.slice(0, 5).map((Image: any, idx: number) => (
+            {images.slice(0, 5).map((img: any, idx: number) => (
               <Image
                 key={idx}
-                src={Image.src}
+                src={img.src}
                 alt={`thumb-${idx}`}
+                width={80} // ✅ required
+                height={80} // ✅ required
                 className={`w-20 h-20 object-cover rounded-lg border border-gray-300 cursor-pointer transition ${
                   selectedImage === idx
                     ? "ring-2 ring-[#0c655c]"
@@ -107,6 +111,8 @@ export default function ProductDetail({
               <Image
                 src="/video-thumbnail.jpg"
                 alt="video"
+                width={80} // ✅ required
+                height={80} 
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 flex items-center justify-center bg-black/40">
@@ -402,6 +408,8 @@ export default function ProductDetail({
                   <Image
                     src={p.images?.[0]?.src || "/placeholder.png"}
                     alt={p.name}
+                    width={300} 
+                    height={200}
                     className="w-full h-40 object-cover rounded-md mb-3"
                   />
                   <h3 className="text-lg font-medium">{p.name}</h3>

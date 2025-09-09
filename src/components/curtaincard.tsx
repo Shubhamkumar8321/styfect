@@ -18,6 +18,7 @@ const ProductCard: React.FC<{ product: Product }> = ({ product }) => {
           <Image
             src={product.images?.[0]?.src || "/placeholder.jpg"}
             alt={product.name}
+            fill
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
           />
 

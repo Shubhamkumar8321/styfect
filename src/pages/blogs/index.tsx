@@ -37,6 +37,8 @@ export default function BlogPage({ posts }: { posts: BlogPost[] }) {
                   <Image
                     src={image}
                     alt={title}
+                    width={600} // ✅ required
+                    height={400} // ✅ required
                     className="w-full h-48 object-cover"
                   />
                 )}
