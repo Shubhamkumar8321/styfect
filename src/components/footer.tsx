@@ -50,7 +50,7 @@ export default function Footer() {
         {/* Left Section - Logo + Paragraph */}
         <div className="space-y-4 text-center md:text-left">
           <Image
-            src="/logo.jpg"
+            src="/Logo.jpg"
             alt="CurtainHub Logo"
             width={150}
             height={40}

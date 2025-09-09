@@ -13,7 +13,7 @@ export default function Navbar() {
         {/* Logo */}
         <div className="flex items-center space-x-2">
           <Image
-            src="/logo.jpg"
+            src="/Logo.jpg"
             alt="Logo"
             width={150}
             height={40}
