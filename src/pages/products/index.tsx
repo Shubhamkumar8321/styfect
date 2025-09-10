@@ -13,8 +13,8 @@ interface Product {
 export default function Products({ products }: { products: Product[] }) {
   return (
     <div className="bg-gray-50 min-h-screen">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-12">
-        <h1 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-8 sm:mb-10 text-center">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-4">
+        <h1 className="text-5xl sm:text-4xl font-extrabold text-gray-900 mb-8 sm:mb-10 text-center ">
           Our Products
         </h1>
 
@@ -23,7 +23,7 @@ export default function Products({ products }: { products: Product[] }) {
             {products.map((product) => (
               <div
                 key={product.id}
-                className="bg-white rounded-2xl shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 flex flex-col overflow-hidden group cursor-pointer"
+                className=" hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 flex flex-col overflow-hidden group cursor-pointer"
               >
                 <ProductCard product={product} />
               </div>

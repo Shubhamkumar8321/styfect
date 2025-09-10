@@ -13,7 +13,9 @@ export default function ProductDetail({
   relatedProducts: any[];
 }) {
   const [selectedImage, setSelectedImage] = useState<number>(0);
-  const images = product.images?.length ? product.images : [{ src: "/placeholder.png" }];
+  const images = product.images?.length
+    ? product.images
+    : [{ src: "/placeholder.png" }];
 
   // Auto-loop images
   useEffect(() => {
@@ -25,7 +27,9 @@ export default function ProductDetail({
 
   if (!product)
     return (
-      <p className="text-center mt-20 text-lg text-gray-600">⚠️ Product not found</p>
+      <p className="text-center mt-20 text-lg text-gray-600">
+        ⚠️ Product not found
+      </p>
     );
 
   return (
@@ -51,7 +55,9 @@ export default function ProductDetail({
                 key={index}
                 onClick={() => setSelectedImage(index)}
                 className={`w-16 h-16 rounded-full overflow-hidden border-2 ${
-                  selectedImage === index ? "border-yellow-500" : "border-gray-200"
+                  selectedImage === index
+                    ? "border-yellow-500"
+                    : "border-gray-200"
                 }`}
               >
                 <Image
@@ -68,11 +74,15 @@ export default function ProductDetail({
 
         {/* Right Section (Desktop Only) */}
         <div className="hidden lg:flex flex-col space-y-6">
-          <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">{product.name}</h1>
+          <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">
+            {product.name}
+          </h1>
           <p className="text-yellow-500 font-medium text-sm sm:text-base">
             ★★★★☆ 4.8 (3,166 Reviews)
           </p>
-          <p className="text-2xl sm:text-3xl font-bold text-[#0c655c]">₹{product.price}</p>
+          <p className="text-2xl sm:text-3xl font-bold text-[#0c655c]">
+            ₹{product.price}
+          </p>
 
           <div className="flex gap-4 mt-6">
             <a
@@ -94,7 +104,9 @@ export default function ProductDetail({
           {/* Accordions */}
           <div className="space-y-4 mt-8">
             <Accordion title="Measurements">
-              <p className="text-sm sm:text-base text-gray-700">Measurement instructions...</p>
+              <p className="text-sm sm:text-base text-gray-700">
+                Measurement instructions...
+              </p>
             </Accordion>
             <Accordion title="Product Information">
               <div
@@ -118,19 +130,27 @@ export default function ProductDetail({
       <div className="lg:hidden space-y-4">
         <div className=" rounded-2xl shadow-md p-4 space-y-3 bg-[#0c655c]">
           {/* Mobile Main Image */}
-          <div className="relative w-full h-64 sm:h-72 md:h-80 rounded-2xl overflow-hidden bg-white">
-            <Image
-              src={images[selectedImage]?.src || "/placeholder.png"}
-              alt={product.name}
-              fill
-              className="object-cover rounded-br-[40%] w-full h-full transition-transform duration-500"
-            />
+          <div className="relative w-full h-64 sm:h-72 md:h-80  overflow-hidden bg-[#0c655c] flex items-center justify-center">
+            {/* White background with rounded bottom-right */}
+            <div className="relative w-full h-full bg-white rounded-br-[60%] flex items-center justify-center">
+              {/* Circle image */}
+              <div className="w-52 h-52 sm:w-56 sm:h-56 md:w-60 md:h-60 rounded-full overflow-hidden relative">
+                <Image
+                  src={images[selectedImage]?.src || "/placeholder.png"}
+                  alt={product.name}
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+              </div>
+            </div>
           </div>
 
           {/* Product Details */}
           <h2 className="text-lg font-semibold text-white">{product.name}</h2>
           <p className="text-base font-bold text-white">₹{product.price}</p>
-          <p className="text-yellow-500 font-medium text-sm ">★★★★☆ 4.8 (3,166 Reviews)</p>
+          <p className="text-yellow-500 font-medium text-sm ">
+            ★★★★☆ 4.8 (3,166 Reviews)
+          </p>
 
           {/* Buttons row */}
           <div className="flex gap-3 mt-3">
@@ -153,7 +173,9 @@ export default function ProductDetail({
           {/* Accordions (same for mobile & desktop) */}
           <div className="space-y-3 mt-4">
             <Accordion title="Measurements">
-              <p className="text-sm text-gray-700">Measurement instructions...</p>
+              <p className="text-sm text-gray-700">
+                Measurement instructions...
+              </p>
             </Accordion>
             <Accordion title="Product Information">
               <div
@@ -176,21 +198,29 @@ export default function ProductDetail({
       {/* Related Products */}
       {relatedProducts?.length > 0 && (
         <div className="mt-14">
-          <h2 className="text-xl sm:text-2xl font-bold mb-6">You may also like</h2>
+          <h2 className="text-xl sm:text-2xl font-bold mb-6">
+            You may also like
+          </h2>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
             {relatedProducts.slice(0, 4).map((p) => (
               <Link key={p.id} href={`/products/${p.id}`}>
-                <div className="group relative bg-[#0c655c] rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 w-full sm:w-64 md:w-72">
-                  <div className="relative w-full h-48 sm:h-56 md:h-64 overflow-hidden rounded-t-2xl">
-                    <Image
-                      src={p.images?.[0]?.src || "/placeholder.jpg"}
-                      alt={p.name}
-                      fill
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 rounded-br-[60%]"
-                    />
+                <div className="group relative bg-[#0c655c] rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 w-full sm:w-64 md:w-72">
+                  {/* White Background with Rounded Bottom Right */}
+                  <div className="relative w-full bg-white rounded-br-[60%] flex items-center justify-center overflow-hidden h-48 sm:h-56 md:h-64">
+                    {/* Circle Image */}
+                    <div className="w-44 h-44 sm:w-48 sm:h-48 md:w-60 md:h-60 rounded-full overflow-hidden relative">
+                      <Image
+                        src={p.images?.[0]?.src || "/placeholder.jpg"}
+                        alt={p.name}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                    </div>
                   </div>
+
+                  {/* Product Info */}
                   <div className="p-4 sm:p-5 flex flex-col flex-1">
-                    <h3 className="text-sm sm:text-base md:text-lg font-normal text-white group-hover:text-white transition-colors duration-300 line-clamp-2">
+                    <h3 className="text-sm sm:text-base md:text-lg font-normal text-white line-clamp-2">
                       {p.name}
                     </h3>
                     <p className="text-base sm:text-lg md:text-xl font-normal text-white mt-1">
