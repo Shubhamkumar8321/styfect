@@ -33,7 +33,7 @@ export default function ProductDetail({
     );
 
   return (
-    <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-10">
+    <div className="max-w-7xl mx-auto  md:px-6 lg:px-8 py-10">
       {/* Main Grid */}
       <div className="grid lg:grid-cols-2 gap-10">
         {/* Left Section */}
@@ -127,8 +127,8 @@ export default function ProductDetail({
       </div>
 
       {/* Mobile Layout */}
-      <div className="lg:hidden space-y-4">
-        <div className=" rounded-2xl shadow-md p-4 space-y-3 bg-[#0c655c]">
+      <div className="lg:hidden -mt-6">
+        <div className=" shadow-md  space-y-3 bg-[#0c655c]">
           {/* Mobile Main Image */}
           <div className="relative w-full h-64 sm:h-72 md:h-80  overflow-hidden bg-[#0c655c] flex items-center justify-center">
             {/* White background with rounded bottom-right */}
@@ -146,14 +146,14 @@ export default function ProductDetail({
           </div>
 
           {/* Product Details */}
-          <h2 className="text-lg font-semibold text-white">{product.name}</h2>
-          <p className="text-base font-bold text-white">₹{product.price}</p>
-          <p className="text-yellow-500 font-medium text-sm ">
+          <h2 className="text-lg font-semibold text-white px-4">{product.name}</h2>
+          <p className="text-base font-bold text-white px-4">₹{product.price}</p>
+          <p className="text-yellow-500 font-medium text-sm px-4 ">
             ★★★★☆ 4.8 (3,166 Reviews)
           </p>
 
           {/* Buttons row */}
-          <div className="flex gap-3 mt-3">
+          <div className="flex gap-3 mt-3 px-4">
             <a
               href="/enquiry"
               className="flex-1 text-center bg-blue-600 text-white px-4 py-2 rounded-lg font-semibold shadow hover:scale-105 transition"
@@ -171,7 +171,7 @@ export default function ProductDetail({
           </div>
 
           {/* Accordions (same for mobile & desktop) */}
-          <div className="space-y-3 mt-4">
+          <div className="space-y-3 mt-4 px-4 pb-4">
             <Accordion title="Measurements">
               <p className="text-sm text-gray-700">
                 Measurement instructions...
@@ -197,7 +197,7 @@ export default function ProductDetail({
 
       {/* Related Products */}
       {relatedProducts?.length > 0 && (
-        <div className="mt-14">
+        <div className="mt-14 p-4">
           <h2 className="text-xl sm:text-2xl font-bold mb-6">
             You may also like
           </h2>

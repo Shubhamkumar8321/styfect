@@ -1,6 +1,9 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+/* Import Google Fonts Poppins */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
 /* Hide scrollbar but keep scrolling */
 .scrollbar-hidden::-webkit-scrollbar {
   display: none;
@@ -10,24 +13,7 @@
   scrollbar-width: none;
 }
 
-/* ✅ Correct font-face */
-@font-face {
-  font-family: "webspecia";
-  src: url("/fonts/Webspecia-Regular.woff2") format("woff2");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "webspecia";
-  src: url("/fonts/Webspecia-Bold.woff") format("woff");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
 /* Apply globally */
 body {
-  font-family: "webspecia", sans-serif !important;
+  font-family: "Poppins", sans-serif !important;
 }
