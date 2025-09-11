@@ -13,7 +13,7 @@ const ProductCard: React.FC<{ product: Product }> = ({ product }) => {
   return (
     <div
       className="
-        group relative bg-[#0c655c] rounded-2xl overflow-hidden 
+        group relative bg-[#dadada] rounded-2xl overflow-hidden 
         shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100
         w-full max-w-[280px] sm:max-w-[300px] md:max-w-[320px] lg:max-w-[340px] mx-auto
       "
