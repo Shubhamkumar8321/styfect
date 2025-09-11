@@ -403,7 +403,7 @@ function MeasurementAccordion({
                 <div key={val} className="flex-none px-3 py-2 text-sm text-gray-700 relative">
                   {val}
                   {val === width && (
-                    <div className="absolute -top-5 left-1/2 -translate-x-1/3 text-blue-500 text-lg">
+                    <div className="absolute -top-2 left-1/2 -translate-x-1/2 text-blue-500 text-lg">
                       ▼
                     </div>
                   )}
@@ -435,7 +435,7 @@ function MeasurementAccordion({
                 <div key={val} className="flex-none px-3 py-2 text-sm text-gray-700 relative">
                   {val}
                   {val === height && (
-                    <div className="absolute -top-5 left-1/2 -translate-x-1/3 text-green-500 text-lg">
+                    <div className="absolute -top-2 left-1/2 -translate-x-1/2 text-green-500 text-lg">
                       ▼
                     </div>
                   )}
