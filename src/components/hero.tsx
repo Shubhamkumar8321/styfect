@@ -91,7 +91,7 @@ export default function Hero() {
           Explore our wide collection of elegant, stylish, and affordable
           curtains to give your home a fresh look.
         </p>
-        <button className="bg-[#0c655c] text-white px-4 xs:px-6 sm:px-8 py-2 xs:py-2.5 sm:py-3 rounded-lg font-semibold hover:bg-[#0c655c]/80 transition text-xs xs:text-sm sm:text-base">
+        <button className="bg-[#0c655c] text-white px-4 xs:px-6 sm:px-8 py-2 xs:py-2.5 sm:py-3 rounded-full font-semibold hover:bg-[#0c655c]/80 transition text-xs xs:text-sm sm:text-base">
           Shop Now
         </button>
       </div>

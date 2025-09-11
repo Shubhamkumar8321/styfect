@@ -60,7 +60,7 @@ const ProductCard: React.FC<{ product: Product }> = ({ product }) => {
           <button
             className="
               mt-3 px-4 sm:px-5 py-2 
-              bg-white text-[#0c655c] font-semibold rounded-lg shadow-md 
+              bg-white text-[#0c655c] font-semibold rounded-full shadow-md 
               hover:bg-white/90 transition-all duration-300 
               text-sm sm:text-base
             "

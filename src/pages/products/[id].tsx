@@ -15,18 +15,17 @@ export default function ProductDetail({
   const [selectedImage, setSelectedImage] = useState<number>(0);
   const images = product?.images || [];
 
-  // ✅ Safe image getter
   const getSafeImage = (img: any, fallback = "/placeholder.png") =>
     img?.src && img.src.trim() !== "" ? img.src : fallback;
 
   return (
-    <div className="bg-gray-50 min-h-screen py-10 px-4 sm:px-8 lg:px-16">
+    <div className="bg-gray-50 min-h-screen py-4 sm:px-8 lg:px-16">
       {/* ===== Mobile Layout ===== */}
       <div className="lg:hidden -mt-6">
         <div className="shadow-md space-y-3 bg-[#dadada]">
           {/* Mobile Main Image */}
           <div className="relative w-full h-64 sm:h-72 md:h-80 overflow-hidden bg-[#dadada] flex items-center justify-center">
-            <div className="relative w-full h-full bg-white rounded-br-[60%] flex items-center justify-center">
+            <div className="relative w-full h-full bg-white rounded-br-[60%] flex items-center justify-center border-2 border-gray-200 hover:border-gray-400 transition">
               <div className="w-52 h-52 sm:w-56 md:w-60 rounded-full overflow-hidden relative">
                 <Image
                   src={getSafeImage(images[selectedImage])}
@@ -49,7 +48,7 @@ export default function ProductDetail({
             ★★★★☆ 4.8 (3,166 Reviews)
           </p>
 
-          {/* Accordions (all 4) */}
+          {/* Accordions */}
           <div className="space-y-3 mt-4 px-4 pb-20">
             <Accordion title="Product Features">
               <ul className="list-disc ml-5 mt-2 space-y-1">
@@ -82,11 +81,11 @@ export default function ProductDetail({
             <h2 className="text-xl sm:text-2xl font-bold mb-6">
               You may also like
             </h2>
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-5">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
               {relatedProducts.slice(0, 4).map((p) => (
                 <Link key={p.id} href={`/products/${p.id}`}>
-                  <div className="group relative bg-[#fff] rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
-                    <div className="relative w-full bg-[#dadada] rounded-br-[60%] flex items-center justify-center overflow-hidden h-48 sm:h-56">
+                  <div className="group relative bg-[#fff] rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border-2 border-gray-200 hover:border-gray-400 hover:bg-gray-100">
+                    <div className="relative w-full bg-[#dadada] rounded-br-[60%] flex items-center justify-center overflow-hidden h-48 sm:h-56 border-2 border-gray-200 hover:border-gray-400">
                       <div className="w-40 h-40 sm:w-48 sm:h-48 rounded-full overflow-hidden relative">
                         <Image
                           src={p.images?.[0]?.src || "/placeholder.jpg"}
@@ -112,10 +111,10 @@ export default function ProductDetail({
         )}
 
         {/* Sticky Buttons */}
-        <div className="fixed bottom-0 left-0 w-full border-t border-gray-200 shadow-md flex gap-3 px-4 py-3 lg:hidden bg-white z-[1000]">
+        <div className="fixed bottom-0 left-0 w-full border-t-2 border-gray-200 shadow-md flex gap-3 px-4 py-3 lg:hidden bg-white z-[1000]">
           <a
             href="/enquiry"
-            className="flex-1 text-center bg-blue-400 text-white px-4 py-2 rounded-lg font-light shadow hover:scale-105 transition"
+            className="flex-1 text-center bg-blue-400 text-white px-4 py-2 rounded-full font-light shadow hover:bg-blue-500 transition"
           >
             Enquiry
           </a>
@@ -123,7 +122,7 @@ export default function ProductDetail({
             href={`https://wa.me/919999999999?text=Hi, I'm interested in ${product.name}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex-1 text-center bg-green-600 text-white px-4 py-2 rounded-lg font-light shadow hover:scale-105 transition"
+            className="flex-1 text-center bg-green-600 text-white px-4 py-2 rounded-full font-light shadow hover:bg-green-700 transition"
           >
             WhatsApp
           </a>
@@ -133,9 +132,8 @@ export default function ProductDetail({
       {/* ===== Desktop Layout ===== */}
       <div className="hidden lg:block">
         {/* Gallery */}
-        <div className="grid grid-cols-10 gap-4">
-          {/* Left Big Image */}
-          <div className="col-span-4 relative rounded-2xl overflow-hidden">
+        <div className="grid grid-cols-10 gap-2">
+          <div className="col-span-4 relative rounded-2xl overflow-hidden ">
             <div className="w-full h-[500px] relative">
               <Image
                 src={getSafeImage(images[0])}
@@ -145,10 +143,8 @@ export default function ProductDetail({
               />
             </div>
           </div>
-
-          {/* Middle Two Small Images */}
           <div className="col-span-2 flex flex-col gap-4">
-            <div className="relative w-full h-[245px] rounded-2xl overflow-hidden">
+            <div className="relative w-full h-[245px] rounded-2xl overflow-hidden ">
               <Image
                 src={getSafeImage(images[1])}
                 alt={product?.name || "Product Image"}
@@ -156,7 +152,7 @@ export default function ProductDetail({
                 className="object-cover"
               />
             </div>
-            <div className="relative w-full h-[245px] rounded-2xl overflow-hidden">
+            <div className="relative w-full h-[245px] rounded-2xl overflow-hidden ">
               <Image
                 src={getSafeImage(images[2])}
                 alt={product?.name || "Product Image"}
@@ -165,8 +161,6 @@ export default function ProductDetail({
               />
             </div>
           </div>
-
-          {/* Right Big Image */}
           <div className="col-span-4 relative rounded-2xl overflow-hidden">
             <div className="w-full h-[500px] relative">
               <Image
@@ -181,7 +175,6 @@ export default function ProductDetail({
 
         {/* Info + Sidebar */}
         <div className="grid grid-cols-1 lg:grid-cols-10 gap-6 mt-8">
-          {/* Details */}
           <div className="lg:col-span-6 space-y-6">
             <h1 className="text-3xl lg:text-4xl font-extrabold text-gray-900">
               {product?.name || "Product Name"}
@@ -194,7 +187,6 @@ export default function ProductDetail({
                 "This is a premium product designed with top quality materials."}
             </p>
 
-            {/* Accordions (all 4) */}
             <div className="space-y-3">
               <Accordion title="Product Features">
                 <ul className="list-disc ml-5 mt-2 space-y-1 text-base">
@@ -223,10 +215,8 @@ export default function ProductDetail({
             </div>
           </div>
 
-          {/* Sidebar */}
           <aside className="lg:col-span-4 space-y-6 lg:sticky lg:top-24 self-start">
-            {/* Newsletter */}
-            <div className="p-6 border rounded-2xl shadow bg-white">
+            <div className="p-6 border-2 border-gray-100 rounded-2xl  bg-white">
               <h3 className="text-lg font-semibold mb-2">📩 Stay up to date</h3>
               <p className="text-sm text-gray-500 mb-4">
                 Get notified when we publish something new.
@@ -235,41 +225,28 @@ export default function ProductDetail({
                 <input
                   type="email"
                   placeholder="Enter your email"
-                  className="flex-1 px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="flex-1 px-3 py-2 border-2 border-gray-200 rounded-full focus:outline-none "
                 />
-                <button className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
+                <button className="px-4 py-2 bg-[#0c655c] text-white rounded-full hover:bg-[#094c43] transition">
                   Subscribe
                 </button>
               </div>
             </div>
 
-            {/* Social Links */}
-            <div className="p-6 border rounded-2xl shadow bg-white">
+            <div className="p-6 border-2 border-gray-100 rounded-2xl  bg-gray-50">
               <h3 className="text-lg font-semibold mb-4">👋 We are on socials</h3>
               <div className="grid grid-cols-2 gap-3 text-sm">
-                <a href="#" className="flex items-center gap-2 p-2 border rounded-lg hover:bg-gray-50">
-                  <span>📘</span> Facebook
-                </a>
-                <a href="#" className="flex items-center gap-2 p-2 border rounded-lg hover:bg-gray-50">
-                  <span>🐦</span> Twitter
-                </a>
-                <a href="#" className="flex items-center gap-2 p-2 border rounded-lg hover:bg-gray-50">
-                  <span>🐙</span> Github
-                </a>
-                <a href="#" className="flex items-center gap-2 p-2 border rounded-lg hover:bg-gray-50">
-                  <span>🎵</span> TikTok
-                </a>
+                <a className="flex items-center gap-2 p-2 border-2 border-gray-200 rounded-lg hover:bg-gray-200 transition">📘 Facebook</a>
+                <a className="flex items-center gap-2 p-2 border-2 border-gray-200 rounded-lg hover:bg-gray-200 transition">🐦 Twitter</a>
+                <a className="flex items-center gap-2 p-2 border-2 border-gray-200 rounded-lg hover:bg-gray-200 transition">🐙 Github</a>
+                <a className="flex items-center gap-2 p-2 border-2 border-gray-200 rounded-lg hover:bg-gray-200 transition">🎵 TikTok</a>
               </div>
             </div>
 
-            {/* About */}
-            <div className="p-4 border rounded-2xl shadow bg-white">
+            <div className="p-4 border-2 border-gray-100 rounded-2xl  bg-white">
               <h3 className="text-lg font-semibold mb-2">About product</h3>
               <p className="text-sm text-gray-500 mb-4">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis
-                in error consectetur eveniet repellendus atque quisquam mollitia
-                perferendis ab ea dignissimos, quod fugit maiores obcaecati quo
-                doloremque voluptatem provident tenetur.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit...
               </p>
             </div>
           </aside>
@@ -284,8 +261,8 @@ export default function ProductDetail({
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
               {relatedProducts.slice(0, 4).map((p) => (
                 <Link key={p.id} href={`/products/${p.id}`}>
-                  <div className="group relative bg-[#fff] rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
-                    <div className="relative w-full bg-[#dadada] rounded-br-[60%] flex items-center justify-center overflow-hidden h-56 md:h-64">
+                  <div className="group relative bg-[#fff] rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300  border-gray-200 hover:border-gray-400 hover:bg-gray-100">
+                    <div className="relative w-full bg-[#dadada] rounded-br-[60%] flex items-center justify-center overflow-hidden h-56 md:h-64  border-gray-200 hover:border-gray-400">
                       <div className="w-44 h-44 sm:w-52 sm:h-52 md:w-64 md:h-64 rounded-full overflow-hidden relative">
                         <Image
                           src={p.images?.[0]?.src || "/placeholder.jpg"}
@@ -325,7 +302,7 @@ function Accordion({
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="border rounded-lg bg-white shadow-sm">
+    <div className=" border-gray-200 rounded-lg bg-white shadow-sm hover:border-gray-400 hover:bg-gray-100 transition">
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="w-full px-4 py-3 flex justify-between items-center text-left text-lg font-semibold"

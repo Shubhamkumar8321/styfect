@@ -31,7 +31,7 @@ export default function Home({
           </h2>
           <Link
             href="/products"
-            className="px-4 py-2 sm:px-5 sm:py-3 bg-[#0c655c] text-white rounded-lg hover:bg-[#0c655c]/90 transition text-sm sm:text-base"
+            className="px-4 py-2 sm:px-5 sm:py-3 bg-[#0c655c] text-white rounded-full hover:bg-[#0c655c]/90 transition text-sm sm:text-base"
           >
             View More Products
           </Link>
@@ -67,7 +67,7 @@ export default function Home({
           </h2>
           <Link
             href="/blogs"
-            className="px-4 py-2 sm:px-5 sm:py-3 bg-[#0c655c] text-white rounded-lg hover:bg-[#0c655c]/90 transition text-sm sm:text-base"
+            className="px-4 py-2 sm:px-5 sm:py-3 bg-[#0c655c] text-white rounded-full hover:bg-[#0c655c]/90 transition text-sm sm:text-base"
           >
             View All Blogs
           </Link>

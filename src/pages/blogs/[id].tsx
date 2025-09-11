@@ -68,9 +68,9 @@ export default function BlogDetail({ post }: { post: any }) {
             <input
               type="email"
               placeholder="Enter your email"
-              className="flex-1 px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="flex-1 px-3 py-2 border rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
-            <button className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
+            <button className="px-4 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition">
               Subscribe
             </button>
           </div>
@@ -82,25 +82,25 @@ export default function BlogDetail({ post }: { post: any }) {
           <div className="grid grid-cols-2 gap-3 text-sm">
             <a
               href="#"
-              className="flex items-center gap-2 p-2 border rounded-lg hover:bg-gray-50"
+              className="flex items-center gap-2 p-2 border rounded-full hover:bg-gray-50"
             >
               <span>📘</span> Facebook
             </a>
             <a
               href="#"
-              className="flex items-center gap-2 p-2 border rounded-lg hover:bg-gray-50"
+              className="flex items-center gap-2 p-2 border rounded-full hover:bg-gray-50"
             >
               <span>🐦</span> Twitter
             </a>
             <a
               href="#"
-              className="flex items-center gap-2 p-2 border rounded-lg hover:bg-gray-50"
+              className="flex items-center gap-2 p-2 border rounded-full hover:bg-gray-50"
             >
               <span>🐙</span> Github
             </a>
             <a
               href="#"
-              className="flex items-center gap-2 p-2 border rounded-lg hover:bg-gray-50"
+              className="flex items-center gap-2 p-2 border rounded-full hover:bg-gray-50"
             >
               <span>🎵</span> TikTok
             </a>
