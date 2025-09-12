@@ -1,7 +1,7 @@
 import WooCommerceRestApi from "@woocommerce/woocommerce-rest-api";
 
 const api = new WooCommerceRestApi({
-  url: "https://thekidling.com",
+  url: "https://admin.styfectcurtains.ae/",
   consumerKey: process.env.WC_CONSUMER_KEY as string,
   consumerSecret: process.env.WC_CONSUMER_SECRET as string,
   version: "wc/v3",
