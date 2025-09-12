@@ -47,12 +47,12 @@ const ProductCard: React.FC<{ product: Product }> = ({ product }) => {
         {/* Product Info */}
         <div className="p-4 sm:p-5 flex flex-col flex-1">
           {/* Product Name */}
-          <h2 className="text-sm sm:text-base md:text-lg font-normal text-white line-clamp-2">
+          <h2 className="text-sm sm:text-base md:text-lg font-normal text-black line-clamp-2">
             {product.name}
           </h2>
 
           {/* Price */}
-          <p className="text-base sm:text-lg md:text-xl font-normal text-white mt-1">
+          <p className="text-base text-black sm:text-lg md:text-xl font-normal mt-1">
             ₹{product.price}
           </p>
 
