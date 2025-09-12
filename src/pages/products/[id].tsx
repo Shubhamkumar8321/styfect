@@ -340,7 +340,7 @@ function MeasurementAccordion({
         <div className="px-4 pb-4 text-gray-600 space-y-6">
           {/* Width Scale */}
           <div className="flex items-center gap-3">
-            <p>width</p>
+            <p>Width</p>
             <input
               type="number"
               value={width}
@@ -355,17 +355,31 @@ function MeasurementAccordion({
             <div
               ref={scaleWidthRef}
               onScroll={handleScrollWidth}
-              className="flex overflow-x-auto space-x-2 py-3 border rounded flex-1 hide-scrollbar"
+              className="flex overflow-x-auto py-3 border rounded flex-1 hide-scrollbar relative"
               style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
             >
               {generateScale(50, 200, 1).map((val) => (
                 <div
                   key={val}
-                  className="flex-none px-3 py-2 text-sm text-gray-700 relative"
+                  className="flex-none w-8 flex flex-col items-center relative"
                 >
-                  {val}
+                  {/* Tick marks */}
+                  <div
+                    className={`w-px ${
+                      val % 10 === 0
+                        ? "h-6 bg-black" // major tick
+                        : val % 5 === 0
+                        ? "h-4 bg-gray-700" // medium tick
+                        : "h-2 bg-gray-400" // small tick
+                    }`}
+                  ></div>
+                  {/* Number below major ticks */}
+                  {val % 10 === 0 && (
+                    <span className="text-xs mt-1 text-gray-600">{val}</span>
+                  )}
+                  {/* Arrow marker */}
                   {val === width && (
-                    <div className="absolute -top-2 left-1/2 -translate-x-1/2 text-blue-500 text-lg">
+                    <div className="absolute -top-4 left-1/2 -translate-x-1/2 text-blue-500 text-lg">
                       ▼
                     </div>
                   )}
@@ -391,17 +405,29 @@ function MeasurementAccordion({
             <div
               ref={scaleHeightRef}
               onScroll={handleScrollHeight}
-              className="flex overflow-x-auto space-x-2 py-3 border rounded flex-1 hide-scrollbar"
+              className="flex overflow-x-auto py-3 border rounded flex-1 hide-scrollbar relative"
               style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
             >
               {generateScale(50, 200, 1).map((val) => (
                 <div
                   key={val}
-                  className="flex-none px-3 py-2 text-sm text-gray-700 relative"
+                  className="flex-none w-8 flex flex-col items-center relative"
                 >
-                  {val}
+                  {/* Tick marks */}
+                  <div
+                    className={`w-px ${
+                      val % 10 === 0
+                        ? "h-6 bg-black"
+                        : val % 5 === 0
+                        ? "h-4 bg-gray-700"
+                        : "h-2 bg-gray-400"
+                    }`}
+                  ></div>
+                  {val % 10 === 0 && (
+                    <span className="text-xs mt-1 text-gray-600">{val}</span>
+                  )}
                   {val === height && (
-                    <div className="absolute -top-2 left-1/2 -translate-x-1/2 text-green-500 text-lg">
+                    <div className="absolute -top-4 left-1/2 -translate-x-1/2 text-green-500 text-lg">
                       ▼
                     </div>
                   )}
@@ -411,8 +437,7 @@ function MeasurementAccordion({
           </div>
 
           <p className="text-sm text-gray-500 mt-2">
-            Enter a value or scroll the scales to adjust Width and Height. Arrow
-            shows current value.
+            Enter a value or scroll the scales to adjust Width and Height.
           </p>
         </div>
       )}
